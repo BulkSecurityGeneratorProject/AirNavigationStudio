@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "AirNavigationStudio",
+    "packageName": "org.antonini.air.navigation.studio",
+    "packageFolder": "org/antonini/air/navigation/studio",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "caebfd54838a59b5ba3e0b857dad72cf27cd7ea8"
+  }
+}
