@@ -97,7 +97,14 @@
             <snapshots>
             </snapshots>
         </repository>
-
+        <repository>
+            <id>sonatype-oss</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>OSGEO GeoTools repo</id>
+            <url>http://download.osgeo.org/webdav/geotools</url>
+        </repository>
         <repository>
             <id>Hibernate-Spatial</id>
             <name>Hibernate-Spatial</name>
