@@ -25,6 +25,6 @@ angular.module('airNavigationStudioApp')
                 },
                 onExit: function(Tracker) {
                     Tracker.unsubscribe();
-                },
+                }
             });
     });

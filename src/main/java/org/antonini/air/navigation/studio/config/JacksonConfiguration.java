@@ -27,7 +27,6 @@ public class JacksonConfiguration {
 
     @Bean
     public JtsModule jacksonJTSModule() {
-        JtsModule jtsModule = new JtsModule();
-        return jtsModule;
+        return new JtsModule();
     }
 }
