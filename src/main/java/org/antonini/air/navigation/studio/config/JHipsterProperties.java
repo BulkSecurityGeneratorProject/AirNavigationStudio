@@ -3,7 +3,7 @@ package org.antonini.air.navigation.studio.config;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+
 
 /**
  * Properties specific to JHipster.
@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "jhipster", ignoreUnknownFields = false)
 public class JHipsterProperties {
+
+    private final static String HOST = "localhost";
 
     private final Async async = new Async();
 
@@ -223,7 +225,7 @@ public class JHipsterProperties {
 
     public static class Mail {
 
-        private String host = "localhost";
+        private String host = HOST;
 
         private int port = 25;
 
@@ -437,7 +439,7 @@ public class JHipsterProperties {
 
             private boolean enabled = false;
 
-            private String host = "localhost";
+            private String host = HOST;
 
             private int port = 9999;
 
@@ -470,7 +472,7 @@ public class JHipsterProperties {
 
             private boolean enabled = false;
 
-            private String host = "localhost";
+            private String host = HOST;
 
             private int port = 2003;
 

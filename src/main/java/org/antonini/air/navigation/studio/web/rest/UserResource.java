@@ -9,7 +9,6 @@ import org.antonini.air.navigation.studio.repository.search.UserSearchRepository
 import org.antonini.air.navigation.studio.security.AuthoritiesConstants;
 import org.antonini.air.navigation.studio.service.UserService;
 import org.antonini.air.navigation.studio.web.rest.dto.ManagedUserDTO;
-import org.antonini.air.navigation.studio.web.rest.dto.UserDTO;
 import org.antonini.air.navigation.studio.web.rest.util.HeaderUtil;
 import org.antonini.air.navigation.studio.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;

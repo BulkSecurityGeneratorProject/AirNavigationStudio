@@ -1,7 +1,7 @@
 package org.antonini.air.navigation.studio.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.antonini.air.navigation.studio.domain.Authority;
+
 import org.antonini.air.navigation.studio.domain.PersistentToken;
 import org.antonini.air.navigation.studio.domain.User;
 import org.antonini.air.navigation.studio.repository.PersistentTokenRepository;
@@ -25,7 +25,7 @@ import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 /**
  * REST controller for managing the current user's account.

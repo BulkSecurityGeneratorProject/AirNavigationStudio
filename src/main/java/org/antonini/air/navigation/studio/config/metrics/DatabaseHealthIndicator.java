@@ -14,22 +14,24 @@ import java.util.Map;
  * SpringBoot Actuator HealthIndicator check for the Database.
  */
 public class DatabaseHealthIndicator extends AbstractHealthIndicator {
-    
+
     private JdbcTemplate jdbcTemplate;
 
     private static Map<String, String> queries = new HashMap<>();
+
+    private final static String DEFAULT_QUERY = "SELECT 1";
 
     static {
         queries.put("HSQL Database Engine",
             "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SYSTEM_USERS");
         queries.put("Oracle", "SELECT 'Hello' from DUAL");
         queries.put("Apache Derby", "SELECT 1 FROM SYSIBM.SYSDUMMY1");
-        queries.put("MySQL", "SELECT 1");
-        queries.put("PostgreSQL", "SELECT 1");
-        queries.put("Microsoft SQL Server", "SELECT 1");
+        queries.put("MySQL", DEFAULT_QUERY);
+        queries.put("PostgreSQL", DEFAULT_QUERY);
+        queries.put("Microsoft SQL Server", DEFAULT_QUERY);
     }
 
-    private static String DEFAULT_QUERY = "SELECT 1";
+
 
     private String query = null;
 

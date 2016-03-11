@@ -1,7 +1,6 @@
 package org.antonini.air.navigation.studio.service;
 
 import org.antonini.air.navigation.studio.domain.Authority;
-import org.antonini.air.navigation.studio.domain.PersistentToken;
 import org.antonini.air.navigation.studio.domain.User;
 import org.antonini.air.navigation.studio.repository.AuthorityRepository;
 import org.antonini.air.navigation.studio.repository.PersistentTokenRepository;
@@ -82,7 +81,7 @@ public class UserService {
 
     public Optional<User> requestPasswordReset(String mail) {
        return userRepository.findOneByEmail(mail)
-           .filter(user -> user.getActivated() == true)
+           .filter(user -> user.getActivated())
            .map(user -> {
                user.setResetKey(RandomUtil.generateResetKey());
                user.setResetDate(DateTime.now());
