@@ -19,7 +19,7 @@ public class DatabaseHealthIndicator extends AbstractHealthIndicator {
 
     private static Map<String, String> queries = new HashMap<>();
 
-    private final static String DEFAULT_QUERY = "SELECT 1";
+    private static final String DEFAULT_QUERY = "SELECT 1";
 
     static {
         queries.put("HSQL Database Engine",
@@ -43,11 +43,11 @@ public class DatabaseHealthIndicator extends AbstractHealthIndicator {
     protected void doHealthCheck(Health.Builder builder) throws Exception {
         String product = getProduct();
         builder.up().withDetail("database", product);
-        String query = detectQuery(product);
-        if (StringUtils.hasText(query)) {
+        String locQuery = detectQuery(product);
+        if (StringUtils.hasText(locQuery)) {
             try {
                 builder.withDetail("hello",
-                    this.jdbcTemplate.queryForObject(query, Object.class));
+                    this.jdbcTemplate.queryForObject(locQuery, Object.class));
             } catch (Exception ex) {
                 builder.down(ex);
             }
@@ -59,14 +59,14 @@ public class DatabaseHealthIndicator extends AbstractHealthIndicator {
     }
 
     protected String detectQuery(String product) {
-        String query = this.query;
-        if (!StringUtils.hasText(query)) {
-            query = queries.get(product);
+        String locQuery = this.query;
+        if (!StringUtils.hasText(locQuery)) {
+            locQuery = queries.get(product);
         }
-        if (!StringUtils.hasText(query)) {
-            query = DEFAULT_QUERY;
+        if (!StringUtils.hasText(locQuery)) {
+            locQuery = DEFAULT_QUERY;
         }
-        return query;
+        return locQuery;
     }
 
     public void setQuery(String query) {

@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "jhipster", ignoreUnknownFields = false)
 public class JHipsterProperties {
 
-    private final static String HOST = "localhost";
+    private static final String HOST = "localhost";
 
     private final Async async = new Async();
 

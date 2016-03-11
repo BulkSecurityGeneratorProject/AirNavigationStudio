@@ -16,22 +16,27 @@ import java.net.URISyntaxException;
  */
 public class PaginationUtil {
 
+    private static final String PAGE = "?page=";
+    private static final String SIZE = "&size=";
+
+    private PaginationUtil() {}
+
     public static HttpHeaders generatePaginationHttpHeaders(Page<?> page, String baseUrl)
         throws URISyntaxException {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Total-Count", "" + page.getTotalElements());
+        headers.add("X-Total-Count", Long.toString(page.getTotalElements()));
         String link = "";
         if ((page.getNumber() + 1) < page.getTotalPages()) {
-            link = "<" + (new URI(baseUrl +"?page=" + (page.getNumber() + 1) + "&size=" + page.getSize())).toString() + ">; rel=\"next\",";
+            link = "<" + (new URI(baseUrl + PAGE + (page.getNumber() + 1) + SIZE + page.getSize())).toString() + ">; rel=\"next\",";
         }
         // prev link
         if ((page.getNumber()) > 0) {
-            link += "<" + (new URI(baseUrl +"?page=" + (page.getNumber() - 1) + "&size=" + page.getSize())).toString() + ">; rel=\"prev\",";
+            link += "<" + (new URI(baseUrl +PAGE + (page.getNumber() - 1) + SIZE + page.getSize())).toString() + ">; rel=\"prev\",";
         }
         // last and first link
-        link += "<" + (new URI(baseUrl +"?page=" + (page.getTotalPages() - 1) + "&size=" + page.getSize())).toString() + ">; rel=\"last\",";
-        link += "<" + (new URI(baseUrl +"?page=" + 0 + "&size=" + page.getSize())).toString() + ">; rel=\"first\"";
+        link += "<" + (new URI(baseUrl +PAGE + (page.getTotalPages() - 1) + SIZE + page.getSize())).toString() + ">; rel=\"last\",";
+        link += "<" + (new URI(baseUrl +PAGE + 0 + SIZE + page.getSize())).toString() + ">; rel=\"first\"";
         headers.add(HttpHeaders.LINK, link);
         return headers;
     }

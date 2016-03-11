@@ -52,7 +52,7 @@ public class LocaleDateTimeEditor extends PropertyEditorSupport {
      * @throws IllegalArgumentException
      */
     @Override
-    public void setAsText( String text ) throws IllegalArgumentException {
+    public void setAsText( String text ) {
         if ( allowEmpty && !StringUtils.hasText(text) ) {
             // Treat empty String as null value.
             setValue(null);

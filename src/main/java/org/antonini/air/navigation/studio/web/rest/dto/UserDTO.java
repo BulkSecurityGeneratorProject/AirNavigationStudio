@@ -46,6 +46,7 @@ public class UserDTO {
     private Set<String> authorities;
 
     public UserDTO() {
+        // Do nothing
     }
 
     public UserDTO(User user) {

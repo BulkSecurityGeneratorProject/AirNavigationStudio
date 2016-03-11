@@ -9,6 +9,11 @@ import org.springframework.http.HttpHeaders;
 public class HeaderUtil {
 
     private static final String APPLICATION_NAME = "airNavigationStudioApp";
+
+    private HeaderUtil() {
+
+    }
+
     public static HttpHeaders createAlert(String message, String param) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-" + APPLICATION_NAME + "-alert", message);

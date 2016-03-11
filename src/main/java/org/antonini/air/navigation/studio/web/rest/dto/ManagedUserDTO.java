@@ -18,6 +18,7 @@ public class ManagedUserDTO extends UserDTO {
     private DateTime lastModifiedDate;
 
     public ManagedUserDTO() {
+        // Do nothing
     }
 
     public ManagedUserDTO(User user) {
